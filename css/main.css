@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: red;
+    margin: 0;
+}
+
+main{
+    margin: 0 auto;
+    width: 1000px;
+    background-color: blue;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.canvas-container{
+    background-color: aqua;
+    grid-row: 1 / 6;
+    grid-column: 1 / 6;
+    width: 500px;
+    height: 500px;
+
+}
+.actions{
+    background-color: pink;
+    grid-column: 6 / 11;
+    grid-row: 1 / 6;
+    
+}
+
+.gallery{
+    background-color: rgb(133, 36, 52);
+    grid-column: 1 / -1;
+    grid-row: 6 / -1;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
+
