@@ -3,13 +3,6 @@
 var gCanvas;
 var gCtx;
 
-function init() {
-    gCanvas = document.querySelector('canvas');
-    gCtx = gCanvas.getContext('2d');
-    resizeCanvas()
-    renderGallery()
-}
-
 function resizeCanvas() {
     var elCanvasContainer = document.querySelector('.canvas-container')
     gCanvas.width = elCanvasContainer.offsetWidth

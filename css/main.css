@@ -3,46 +3,132 @@
 }
 
 body{
-    background-color: red;
+    /* background-color: red; */
+    background-image: linear-gradient(#0E97B1, #30BB72);
     margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;   
+
+}
+header{
+    height: 15%;
+    position: relative; 
+    display: flex;
+    justify-content: center; 
+}
+.header-container{
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+font-size: xx-large;
+font-weight: bolder;
+}
+
+.logo span{
+    color: red;
+}
+
+header nav button{
+    background:none;
+    line-height: 1.5em;
+    font-size: 1.5rem;
+    border-radius: 3em;
+    border: 1px solid black;
+    cursor: pointer;
+
+}
+
+header nav button:hover{
+    background-color: #30BB72;
+}
+
+header nav input{
+    line-height: 1.5em;
+    font-size: 1.5rem;
+    border-radius: 3em;
+    border: 1px solid black;
 }
 
 main{
+    height: 75%;
     margin: 0 auto;
     max-width: 1000px;
-    background-color: blue;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    
+    
 }
 
-.canvas-container{
-    background-color: aqua;
-    grid-row: 1 / 6;
-    grid-column: 1 / 6;
-    width: 500px;
-    height: 500px;
+.meme-editor{
+    position: absolute;
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+
+.canvas-container{    
+    background-color: aqua;    
+    max-width: 700px;
+    max-height: 700px;
+    width: 80%;
+
 
 }
 .actions{
-    background-color: pink;
-    grid-column: 6 / 11;
-    grid-row: 1 / 6;
+    background-color: pink;  
+    width: 20%;  
+    height: 700px;
     
 }
 
 .gallery{
-    background-color: rgb(133, 36, 52);
-    grid-column: 1 / -1;
-    grid-row: 6 / -1;
-
+    width: 1000px;
+    height: 100%;
+    /* background-image: linear-gradient(#0E97B1, #30BB72); */
     display: grid;
     gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    align-items: center; 
+    justify-items: center;
 }
 
-img{
-    height: 100px;
-    width: 100px;
+img{    
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;
 }
 
+.close-editor{
+    /* display: block; */
+    float: right;
+    background: none;
+    border: none;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+}
+.meme-editor h2{
+text-align: center;
+}
+
+footer{    
+    height: 10%;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+footer span{
+    color: red;
+}
+.hidden{
+    display: none;
+}

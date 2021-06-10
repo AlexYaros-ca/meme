@@ -2,10 +2,15 @@
 
 var gCurrImg;
 var isTopLine = true;
-
-
-
 const IMAGES = createIMAGES();
+
+function init() {
+    gCanvas = document.querySelector('canvas');
+    gCtx = gCanvas.getContext('2d');
+    resizeCanvas()
+    renderGallery()
+}
+
 
 var gMeme = {
     imgId: null,
@@ -25,8 +30,6 @@ var gMeme = {
     }
 
 }
-
-
 
 function createIMAGES() {
     var images = []

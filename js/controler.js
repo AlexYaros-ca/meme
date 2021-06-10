@@ -7,7 +7,10 @@ function renderGallery(){
 
 
 function onImgClick(el) {
+    var elEditor = document.querySelector('.meme-editor')
+    elEditor.classList.toggle('hidden')
     setCurrImg(el.id)
+
 
 }
 function onTextInput(txt){
@@ -36,4 +39,9 @@ function onSetLine(){
 function onSetTxtAline(aline){
     setTxtAline(aline)
     renderCanvas()
+}
+
+function onCloseEditor(){
+    var elEditor = document.querySelector('.meme-editor')
+    elEditor.classList.toggle('hidden')
 }

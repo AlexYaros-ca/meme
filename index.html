@@ -10,39 +10,46 @@
 </head>
 
 <body onload="init()">
+
     <header>
-        <div class="logo">MemeRedemeR</div>
-        <nav>
-            <button>Gallery</button>
-            <input type="text" placeholder="Search">
-            <button>My memes</button>
-        </nav>
+        <div class="header-container">
+
+            <div class="logo"><span>M</span>eme<span>R</span>etrieve<span>R</span> </div>
+            <nav>
+                <button>Gallery</button>
+                <button>My memes</button>
+                <input type="text" placeholder="Search">
+            </nav>
+        </div>        
     </header>
 
     <main>
-        <div class="canvas-container">
-            <canvas name="my-canvas"></canvas>
-        </div>
-        <div class="actions">
-            <button onclick="onSetLine()">line</button>
-            <input type="number" onchange="onSetFontSize(value)" placeholder="font Size">
-            <input type="color" onchange="onSetFillColor(value)"> fillcolor
-            <input type="color" onchange="onSetStrokeColor(value)"> strokeColor
-            
-            <input type="text" onchange="onTextInput(value)" placeholder="text">
-            <!-- <button onclick="printText()">text</button> -->
-            <select onchange="onSetTxtAline(value)">text aline
-                <option value="right">Right</option>
-                <option value="center">Center</option>
-                <option value="left">Left</option>
-            </select>
-        </div>
+        <div class="meme-editor hidden">
 
+            <div class="canvas-container">
+                <canvas name="my-canvas"></canvas>
+            </div>
+            <div class="actions">
+                <button onclick="onCloseEditor()" class="close-editor">X</button>
+                <h2>Meme editrot</h2>
+                <button onclick="onSetLine()">line</button>
+                <input type="number" onchange="onSetFontSize(value)" placeholder="font Size">
+                <input type="color" onchange="onSetFillColor(value)"> fillcolor
+                <input type="color" onchange="onSetStrokeColor(value)"> strokeColor
+                
+                <input type="text" onchange="onTextInput(value)" placeholder="text">                
+                <select onchange="onSetTxtAline(value)">text aline
+                    <option value="right">Right</option>
+                    <option value="center">Center</option>
+                    <option value="left">Left</option>
+                </select>
+            </div>
+        </div>
+            
         <div class="gallery">            
         </div>
-
-
     </main>
+    <footer> <span>A</span>lex <span>Y</span>aroslavski</footer>
 
     <script src="js/canvas_servis.js"></script>
     <script src="js/model.js"></script>
