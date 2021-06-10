@@ -55,7 +55,13 @@ header nav input{
     border-radius: 3em;
     border: 1px solid black;
 }
-
+.dark-screen{
+    position:fixed;
+    background-color: black;
+    opacity: 0.6;
+    width: 1000px;
+    height: 100%;
+}
 main{
     height: 75%;
     margin: 0 auto;
@@ -83,7 +89,7 @@ main{
 
 }
 .actions{
-    background-color: pink;  
+    background-color: #30BB72;  
     width: 20%;  
     height: 700px;
     
@@ -118,6 +124,45 @@ img{
 .meme-editor h2{
 text-align: center;
 }
+
+.actions-bar{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+    "pickLine pickLine . fontsize fontsize fontsize"
+    "fillColor fillColor fillColor strokeColor strokeColor strokeColor"
+    "left left center center right right"
+    "text text text text text text"
+    ;
+}
+
+.pick-line{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    grid-area: pickLine;
+}
+.font-size{
+    grid-area: fontsize;
+    height: 50px;
+    width: 100px;
+}
+.fillColor{
+    grid-area: fillColor;
+}
+.strokeColor{
+    grid-area: strokeColor;
+}
+.text{
+    grid-area: text;
+}
+.side{
+    grid-area: left;
+}
+
 
 footer{    
     height: 10%;

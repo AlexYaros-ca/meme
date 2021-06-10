@@ -7,8 +7,10 @@ function renderGallery(){
 
 
 function onImgClick(el) {
+    var elDarkScreen = document.querySelector('.dark-screen')
     var elEditor = document.querySelector('.meme-editor')
     elEditor.classList.toggle('hidden')
+    elDarkScreen.classList.toggle('hidden')
     setCurrImg(el.id)
 
 
@@ -42,6 +44,8 @@ function onSetTxtAline(aline){
 }
 
 function onCloseEditor(){
+    var elDarkScreen = document.querySelector('.dark-screen')
     var elEditor = document.querySelector('.meme-editor')
     elEditor.classList.toggle('hidden')
+    elDarkScreen.classList.toggle('hidden')
 }

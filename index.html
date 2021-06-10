@@ -24,6 +24,7 @@
     </header>
 
     <main>
+        <div class="dark-screen hidden"></div>
         <div class="meme-editor hidden">
 
             <div class="canvas-container">
@@ -31,18 +32,21 @@
             </div>
             <div class="actions">
                 <button onclick="onCloseEditor()" class="close-editor">X</button>
-                <h2>Meme editrot</h2>
-                <button onclick="onSetLine()">line</button>
-                <input type="number" onchange="onSetFontSize(value)" placeholder="font Size">
-                <input type="color" onchange="onSetFillColor(value)"> fillcolor
-                <input type="color" onchange="onSetStrokeColor(value)"> strokeColor
-                
-                <input type="text" onchange="onTextInput(value)" placeholder="text">                
-                <select onchange="onSetTxtAline(value)">text aline
-                    <option value="right">Right</option>
-                    <option value="center">Center</option>
-                    <option value="left">Left</option>
-                </select>
+                <h2>Meme editrot</h2>  
+                <div class="actions-bar">
+
+                    <img  class="pick-line" onclick="onSetLine()" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                    <input class="font-size" type="number" onchange="onSetFontSize(value)" placeholder="Font Size">
+                    <input class="fillColor" type="color" onchange="onSetFillColor(value)"> 
+                    <input  class="strokeColor" type="color" onchange="onSetStrokeColor(value)">
+                    
+                    <input class="text" type="text" onchange="onTextInput(value)" placeholder="text">                
+                    <select class="side" onchange="onSetTxtAline(value)">text aline
+                        <option value="right">Right</option>
+                        <option value="center">Center</option>
+                        <option value="left">Left</option>
+                    </select>
+                </div>              
             </div>
         </div>
             
