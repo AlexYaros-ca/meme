@@ -27,7 +27,21 @@ function drawImgOnCanvas(src) {
    
 }
 
-function printText(text){
+function renderCanvas(){
     resizeCanvas()
+    var img = new Image()
+    img.src = gCurrImg.src;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        printText(gMeme.topLine.text)
+    }
+}
+
+function printText(text){
+
+    gCtx.fillStyle = gMeme.topLine.fillColor
+    
+    gCtx.font = gMeme.topLine.fontSize
     gCtx.fillText(text, 100, 100);
+
 }
