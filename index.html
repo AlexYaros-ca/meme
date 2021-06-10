@@ -24,18 +24,23 @@
             <canvas name="my-canvas"></canvas>
         </div>
         <div class="actions">
-            <button>line</button>
-            <button>font</button>
-            <button>color</button>
-            <input type="text" onchange="onTextInput(value)">
+            <button onclick="onSetLine()">line</button>
+            <input type="number" onchange="onSetFontSize(value)" placeholder="font Size">
+            <input type="color" onchange="onSetFillColor(value)"> fillcolor
+            <input type="color" onchange="onSetStrokeColor(value)"> strokeColor
+            
+            <input type="text" onchange="onTextInput(value)" placeholder="text">
             <!-- <button onclick="printText()">text</button> -->
-            <button>magnify</button>
-            <button>smaller</button>
+            <select onchange="onSetTxtAline(value)">text aline
+                <option value="right">Right</option>
+                <option value="center">Center</option>
+                <option value="left">Left</option>
+            </select>
         </div>
 
         <div class="gallery">
-            <img id="1" onclick="onImgClick(this)" src="img/1.jpg">
-            <img id="2" onclick="onImgClick(this)" src="img/2.jpg">
+            <!-- <img id="1" onclick="onImgClick(this)" src="img/1.jpg">
+            <img id="2" onclick="onImgClick(this)" src="img/2.jpg"> -->
         </div>
 
 

@@ -1,6 +1,9 @@
 'use strict'
 
 var gCurrImg;
+var gLine = 1;
+var gAline = 'right'
+
 
 var image1 = {
     id: '1',
@@ -12,15 +15,31 @@ var image2 = {
     src: 'img/2.jpg',
     keyWords: ['sweet', 'animals']
 }
+
 const IMAGES = [image1, image2];
+
+
+function createImagesStrHTML(){
+    var strHTML = ''
+    for(var i = 1; i < 19; i++){
+       strHTML+= `<img id=${i} onclick="onImgClick(this)" src="img/${i}.jpg">`    
+    }
+    return strHTML;
+}
 
 var gMeme = {
     imgId: null,
     topLine: {
         text: '',
-        fontSize:'',
-        fillColor: '',
-        strokeColor: ''
+        fontSize: '30px Impact',
+        fillColor: 'red',
+        strokeColor: 'white'
+    },
+    bottomLine: {
+        text: '',
+        fontSize: '30px Impact',
+        fillColor: 'red',
+        strokeColor: 'white'
     }
 
 }
@@ -37,12 +56,29 @@ function setCurrImg(id) {
     drawImgOnCanvas(gCurrImg.src)
 }
 
-function setCurrMeme(txt, tSize = '30px Impact', fColor = 'red', sColor = 'white') {
-    gMeme.imgId = gCurrImg.id;
-    gMeme.topLine.text = txt;
-    gMeme.topLine.fontSize = tSize;
-    gMeme.topLine.fillColor = fColor;
-    gMeme.topLine.strokeColor = sColor;
-    console.log(gMeme)
+function setFontSize(fontSize) {
+    gMeme.topLine.fontSize = fontSize + 'px Impact';
 }
+
+function setMemeTxt(txt) {
+    gMeme.topLine.text = txt;
+}
+
+function SetFillColor(color) {
+    gMeme.topLine.fillColor = color;
+}
+
+function SetStrokeColor(color) {
+    gMeme.topLine.strokeColor = color;
+}
+
+function setLine() {
+    gLine++
+    if (gLine === 4) gLine = 1;
+}
+
+function setTxtAline(aline){
+    gAline = aline;
+}
+
 
