@@ -10,13 +10,11 @@ function init() {
     renderGallery()
 }
 
-
 function resizeCanvas() {
     var elCanvasContainer = document.querySelector('.canvas-container')
     gCanvas.width = elCanvasContainer.offsetWidth
     gCanvas.height = elCanvasContainer.offsetHeight
 }
-
 
 function drawImgOnCanvas(src) {
     resizeCanvas()
@@ -34,34 +32,26 @@ function renderCanvas() {
     img.src = gCurrImg.src;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        printText(gMeme.topLine.text)
+        printText()
     }
 }
 
-function printText(text) {
-    var txtPos;
-    var txtAline;
-    if (gLine === 1) {
-        txtPos = 0.15
-    } else if (gLine === 2) {
-        txtPos = 0.5
-    } else {
-        txtPos = 0.85
-    }
-    if (gAline === 'right') {
-        txtAline = 0.75
-    } else if (gAline === 'center') {
-        txtAline = 0.5
-    } else {
-        txtAline = 0.15
-    }
-
+function printText() {
     gCtx.lineWidth = 1
+    gCtx.textAlign = 'center'
+
     gCtx.fillStyle = gMeme.topLine.fillColor
     gCtx.strokeStyle = gMeme.topLine.strokeColor
     gCtx.font = gMeme.topLine.fontSize
-    gCtx.textAlign = 'center'
-    gCtx.fillText(text, gCanvas.width * txtAline, gCanvas.height * txtPos);
-    gCtx.strokeText(text, gCanvas.width * txtAline, gCanvas.height * txtPos);
+    gCtx.fillText(gMeme.topLine.text, gCanvas.width * gMeme.topLine.textAline, gCanvas.height * 0.15);
+    gCtx.strokeText(gMeme.topLine.text, gCanvas.width * gMeme.topLine.textAline, gCanvas.height * 0.15);
+
+
+    gCtx.fillStyle = gMeme.bottomLine.fillColor
+    gCtx.strokeStyle = gMeme.bottomLine.strokeColor
+    gCtx.font = gMeme.bottomLine.fontSize
+    gCtx.fillText(gMeme.bottomLine.text, gCanvas.width * gMeme.bottomLine.textAline, gCanvas.height * 0.85);
+    gCtx.strokeText(gMeme.bottomLine.text, gCanvas.width * gMeme.bottomLine.textAline, gCanvas.height * 0.85);
+
 
 }

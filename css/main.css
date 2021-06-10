@@ -9,7 +9,7 @@ body{
 
 main{
     margin: 0 auto;
-    width: 1000px;
+    max-width: 1000px;
     background-color: blue;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -35,6 +35,10 @@ main{
     background-color: rgb(133, 36, 52);
     grid-column: 1 / -1;
     grid-row: 6 / -1;
+
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
 }
 
 img{

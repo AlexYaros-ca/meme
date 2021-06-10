@@ -30,8 +30,7 @@ function onSetStrokeColor(color){
 }
 
 function onSetLine(){
-    setLine()
-    renderCanvas()
+    setLine()    
 }
 
 function onSetTxtAline(aline){
