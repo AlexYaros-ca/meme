@@ -15,6 +15,7 @@ function onImgClick(el) {
 
 
 }
+
 function onTextInput(txt){
     setMemeTxt(txt)
     renderCanvas()
