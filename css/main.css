@@ -2,8 +2,7 @@
     box-sizing: border-box;
 }
 
-body{
-    /* background-color: red; */
+body{    
     background-image: linear-gradient(#0E97B1, #30BB72);
     margin: 0;
     height: 100vh;
@@ -20,8 +19,7 @@ header{
 .header-container{
     width: 1000px;
     height: 100%;
-    display: flex;
-    
+    display: flex;    
     justify-content: space-between;
     align-items: center;
 }
@@ -96,8 +94,7 @@ main{
 
 .gallery{
     width: 1000px;
-    height: 100%;
-    /* background-image: linear-gradient(#0E97B1, #30BB72); */
+    height: 100%;    
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -131,14 +128,15 @@ text-align: center;
 .actions-bar{
     display: grid;
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100px 100px 100px 1fr;
+    grid-template-rows: 100px 100px 100px 100px 100px;
     justify-content: center;
     align-items: center;
     grid-template-areas: 
-    "pickLine pickLine . fontsize fontsize fontsize"
+    "pickLine pickLine  inc-font-size inc-font-size dec-font-size dec-font-size"
     "fillColor fillColor fillColor strokeColor strokeColor strokeColor"
     "left left center center right right"
     "text text text text text text"
+    "download download save save share share"
     ;
 }
 
@@ -148,14 +146,17 @@ text-align: center;
     justify-self: center;
     cursor: pointer;
 }
-
+.save{
+    grid-area: save;
+}
 .pick-line{   
     grid-area: pickLine;
 }
-.font-size{
-    grid-area: fontsize;
-    height: 50px;
-    width: 70px;
+.inc-font-size{
+    grid-area: inc-font-size;    
+}
+.dec-font-size{
+    grid-area: dec-font-size;    
 }
 .fillColor{
     grid-area: fillColor;
@@ -177,6 +178,18 @@ text-align: center;
 .al-right{
     grid-area: right;
     
+}
+.download{
+    grid-area: download;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.5em;
+    border: 1px solid black;
+    width: 60px;
+    color: black;
+    text-align: center;
+    border-radius: 2em;
 }
 
 
@@ -292,7 +305,7 @@ footer span{
         align-items: center;
         grid-template-areas: 
         "text text left center right "
-        "pickLine fontsize . fillColor strokeColor"              
+        "pickLine inc-font-size dec-font-size fillColor strokeColor"              
         ;
     }
     .actions{

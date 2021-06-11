@@ -35,16 +35,29 @@ function printText() {
 
     gCtx.fillStyle = gMeme.topLine.fillColor
     gCtx.strokeStyle = gMeme.topLine.strokeColor
-    gCtx.font = gMeme.topLine.fontSize
+    gCtx.font = gMeme.topLine.fontSize +'px Impact'
     gCtx.fillText(gMeme.topLine.text, gCanvas.width * gMeme.topLine.textAline, gCanvas.height * 0.15);
     gCtx.strokeText(gMeme.topLine.text, gCanvas.width * gMeme.topLine.textAline, gCanvas.height * 0.15);
 
 
     gCtx.fillStyle = gMeme.bottomLine.fillColor
     gCtx.strokeStyle = gMeme.bottomLine.strokeColor
-    gCtx.font = gMeme.bottomLine.fontSize
+    gCtx.font = gMeme.bottomLine.fontSize + 'px Impact'
     gCtx.fillText(gMeme.bottomLine.text, gCanvas.width * gMeme.bottomLine.textAline, gCanvas.height * 0.85);
     gCtx.strokeText(gMeme.bottomLine.text, gCanvas.width * gMeme.bottomLine.textAline, gCanvas.height * 0.85);
 
 
 }
+
+function downloadCanvas(elLink) {    
+    const data = gCanvas.toDataURL()    
+    elLink.href = data
+    elLink.download = prompt('Meme name?')
+}
+
+function saveCanvas(){
+    const data = gCanvas.toDataURL();
+    return data;    
+}
+
+

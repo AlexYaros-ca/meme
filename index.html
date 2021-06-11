@@ -16,8 +16,8 @@
 
             <div class="logo"><span>M</span>eme<span>R</span>etrieve<span>R</span> </div>
             <nav>
-                <button>Gallery</button>
-                <button>My memes</button>
+                <button onclick="onDisplayGallery()">Gallery</button>
+                <button onclick="onDisplayMyMeme()">My memes</button>
                 <input type="text" placeholder="Search">
             </nav>
         </div>
@@ -34,24 +34,20 @@
                 <button onclick="onCloseEditor()" class="close-editor">X</button>
                 <h2>Meme Editor</h2>
                 <div class="actions-bar">
-
+                    
+                    <img class="save" onclick="onSave()" src="icons/add.png">
+                    <a class="download" href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
                     <img class="pick-line" onclick="onSetLine()"
-                        src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
-                    <input class="font-size" type="number" onchange="onSetFontSize(value)" placeholder="Font Size">
+                        src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">                    
+                    <img class="inc-font-size" onclick="onSetFontSize(5)" src="icons/increase font - icon.png">
+                    <img class="dec-font-size" onclick="onSetFontSize(-5)" src="icons/decrease font - icon.png">
                     <input class="fillColor" type="color" onchange="onSetFillColor(value)">
                     <input class="strokeColor" type="color" onchange="onSetStrokeColor(value)">
 
                     <input class="text" type="text" onchange="onTextInput(value)" placeholder="text">
                     <img onclick="onSetTxtAline('left')" class="al-left" src="ICONS/align-to-left.png">
                     <img onclick="onSetTxtAline('center')" class="al-center" src="ICONS/center-text-alignment.png">
-                    <img onclick="onSetTxtAline('right')" class="al-right" src="ICONS/align-to-right.png">
-
-
-                    <!-- <select class="side" onchange="onSetTxtAline(value)">text aline
-                        <option value="right">Right</option>
-                        <option value="center">Center</option>
-                        <option value="left">Left</option>
-                    </select> -->
+                    <img onclick="onSetTxtAline('right')" class="al-right" src="ICONS/align-to-right.png">                    
                 </div>
             </div>
         </div>
@@ -64,7 +60,7 @@
             <span>A</span>lex <span>Y</span>aroslavski
         </h3>
     </footer>
-
+    <script src="js/storage.js"></script>
     <script src="js/canvas_servis.js"></script>
     <script src="js/model.js"></script>
     <script src="js/controler.js"></script>

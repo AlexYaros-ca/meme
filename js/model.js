@@ -1,8 +1,12 @@
 'use strict'
 
 var gCurrImg;
-var isTopLine = true;
+var gIsTopLine = true;
 const IMAGES = createIMAGES();
+const STORAGE_KEY = 'MemeDB'
+var gMyMemes = loadMyMeme()
+var gIsGallery = true;
+
 
 function init() {
     gCanvas = document.querySelector('canvas');
@@ -11,19 +15,18 @@ function init() {
     renderGallery()
 }
 
-
 var gMeme = {
     imgId: null,
     topLine: {
         text: '',
-        fontSize: '30px Impact',
+        fontSize: 30,
         fillColor: 'red',
         strokeColor: 'white',
         textAline: 0.5
     },
     bottomLine: {
         text: '',
-        fontSize: '30px Impact',
+        fontSize: 30,
         fillColor: 'red',
         strokeColor: 'white',
         textAline: 0.5
@@ -35,7 +38,7 @@ function createIMAGES() {
     var images = []
     for (var i = 0; i < 18; i++) {
         images[i] = {
-            id: ''+ (i + 1),
+            id: '' + (i + 1),
             src: 'img/' + (i + 1) + '.jpg'
         }
     }
@@ -52,34 +55,40 @@ function createImagesStrHTML() {
 
 function setCurrImg(id) {
     var currImg = null;
-    IMAGES.forEach(function (img) {
-        if (img.id === id) {
-            currImg = img
-            return;
-        }
-    })
-    gCurrImg = currImg    
-    drawImgOnCanvas(gCurrImg.src)
+    if(gIsGallery){
+
+        IMAGES.forEach(function (img) {
+            if (img.id === id) {
+                currImg = img
+                return;
+            }
+        })
+        gCurrImg = currImg
+        drawImgOnCanvas(gCurrImg.src)
+    } else {
+        gCurrImg = gMyMemes[id-1]
+        drawImgOnCanvas(gCurrImg.imgData)
+    }
 }
 
 function setFontSize(fontSize) {
-    if(isTopLine){
-        gMeme.topLine.fontSize = fontSize + 'px Impact';        
-    } else {        
-        gMeme.bottomLine.fontSize = fontSize + 'px Impact';
+    if (gIsTopLine) {
+        gMeme.topLine.fontSize += fontSize;
+    } else {
+        gMeme.bottomLine.fontSize += fontSize;
     }
 }
 
 function setMemeTxt(txt) {
-    if(isTopLine){
-        gMeme.topLine.text = txt;        
+    if (gIsTopLine) {
+        gMeme.topLine.text = txt;
     } else {
         gMeme.bottomLine.text = txt;
     }
 }
 
 function SetFillColor(color) {
-    if(isTopLine){
+    if (gIsTopLine) {
         gMeme.topLine.fillColor = color;
     } else {
         gMeme.bottomLine.fillColor = color;
@@ -87,7 +96,7 @@ function SetFillColor(color) {
 }
 
 function SetStrokeColor(color) {
-    if(isTopLine){
+    if (gIsTopLine) {
         gMeme.topLine.strokeColor = color;
     } else {
         gMeme.bottomLine.strokeColor = color;
@@ -105,7 +114,7 @@ function setTxtAline(aline) {
     }
 
 
-    if(isTopLine){
+    if (gIsTopLine) {
         gMeme.topLine.textAline = xPosMult;
     } else {
         gMeme.bottomLine.textAline = xPosMult;
@@ -113,8 +122,29 @@ function setTxtAline(aline) {
 }
 
 function setLine() {
-    isTopLine = !isTopLine;    
+    gIsTopLine = !gIsTopLine;
 }
 
+function saveMyMeme(data) {
+    var myMeme = {
+        id: gMyMemes.length + 1,
+        imgData: data
+    }
+    gMyMemes.push(myMeme)
+    saveToStorage(STORAGE_KEY, gMyMemes)
 
+}
 
+function loadMyMeme() {
+    var myMemes = loadFromStorage(STORAGE_KEY)
+    if (!myMemes) return [];
+    return myMemes
+}
+
+function CreateMyMemeStrHTML(){
+    var strHTML = ''
+    gMyMemes.forEach(function (meme) {
+        strHTML += `<img id=${meme.id} onclick="onImgClick(this)" src=${meme.imgData}>`
+    })
+    return strHTML;
+}
