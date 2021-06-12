@@ -101,6 +101,17 @@ main{
     align-items: center; 
     justify-items: center;
 }
+.gallery::-webkit-scrollbar{
+    width: 15px;
+}
+.gallery::-webkit-scrollbar-thumb{
+background-color:red;
+border-radius: 20px;
+}
+.gallery::-webkit-scrollbar-track{
+background: black;
+border-radius: 20px;
+}
 
 .gallery img{    
     height: 150px;
@@ -160,9 +171,17 @@ text-align: center;
 }
 .fillColor{
     grid-area: fillColor;
+    justify-self: center;
+    padding: 0;
+    border: none;
+    background: none;
 }
 .strokeColor{
     grid-area: strokeColor;
+    justify-self: center;
+    padding: 0;
+    border: none;
+    background: none;
 }
 .text{
     grid-area: text;
@@ -190,11 +209,13 @@ text-align: center;
     text-align: center;
     border-radius: 2em;
     justify-self: center;
+    background: none;
+    cursor: pointer;
 }
 .download{
     grid-area: download;
 }
-.share{
+.share-form{
     grid-area: share;
 }
 

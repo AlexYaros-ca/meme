@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="init()" onresize="resizeCanvas()">
+<body onload="init()" onresize="renderCanvas()">
 
     <header>
         <div class="header-container">
@@ -36,8 +36,12 @@
                 <div class="actions-bar">
                     
                     <img class="save" onclick="onSave()" src="icons/add.png">
-                    <a class="download" href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
-                    <a class="share" href="#" download="file-name">Share</a>
+                    <a class="download" href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>                    
+                    <form class="share-form" action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="share" type="submit">Publish</button>                        
+                        <div class="share-container"></div>
+                      </form>
                     <img class="pick-line" onclick="onSetLine()"
                         src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">                    
                     <img class="inc-font-size" onclick="onSetFontSize(5)" src="icons/increase font - icon.png">
@@ -45,10 +49,12 @@
                     <input class="fillColor" type="color" onchange="onSetFillColor(value)">
                     <input class="strokeColor" type="color" onchange="onSetStrokeColor(value)">
 
+                  
+
                     <input class="text" type="text" onchange="onTextInput(value)" placeholder="text">
-                    <img onclick="onSetTxtAline('left')" class="al-left" src="ICONS/align-to-left.png">
-                    <img onclick="onSetTxtAline('center')" class="al-center" src="ICONS/center-text-alignment.png">
-                    <img onclick="onSetTxtAline('right')" class="al-right" src="ICONS/align-to-right.png">                    
+                    <img onclick="onSetTxtAlign('left')" class="al-left" src="ICONS/align-to-left.png">
+                    <img onclick="onSetTxtAlign('center')" class="al-center" src="ICONS/center-text-alignment.png">
+                    <img onclick="onSetTxtAlign('right')" class="al-right" src="ICONS/align-to-right.png">                    
                 </div>
             </div>
         </div>
@@ -65,6 +71,7 @@
     <script src="js/canvas_servis.js"></script>
     <script src="js/model.js"></script>
     <script src="js/controler.js"></script>
+    <script src="js/upload-service.js"></script>
 
 </body>
 

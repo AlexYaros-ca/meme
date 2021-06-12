@@ -41,9 +41,9 @@ function onSetLine(){
     setLine()    
 }
 
-function onSetTxtAline(aline){
+function onSetTxtAlign(align){
     if(!gIsGallery) return
-    setTxtAline(aline)
+    setTxtAlign(align)
     renderCanvas()
 }
 

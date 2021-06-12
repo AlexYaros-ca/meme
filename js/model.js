@@ -22,14 +22,14 @@ var gMeme = {
         fontSize: 30,
         fillColor: 'red',
         strokeColor: 'white',
-        textAline: 0.5
+        textAlign: 0.5
     },
     bottomLine: {
         text: '',
         fontSize: 30,
         fillColor: 'red',
         strokeColor: 'white',
-        textAline: 0.5
+        textAlign: 0.5
     }
 
 }
@@ -103,11 +103,11 @@ function SetStrokeColor(color) {
     }
 }
 
-function setTxtAline(aline) {
+function setTxtAlign(align) {
     var xPosMult;
-    if (aline === 'right') {
+    if (align === 'right') {
         xPosMult = 0.75
-    } else if (aline === 'center') {
+    } else if (align === 'center') {
         xPosMult = 0.5
     } else {
         xPosMult = 0.15
@@ -115,9 +115,9 @@ function setTxtAline(aline) {
 
 
     if (gIsTopLine) {
-        gMeme.topLine.textAline = xPosMult;
+        gMeme.topLine.textAlign = xPosMult;
     } else {
-        gMeme.bottomLine.textAline = xPosMult;
+        gMeme.bottomLine.textAlign = xPosMult;
     }
 }
 
