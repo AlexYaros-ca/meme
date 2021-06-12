@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="init()">
+<body onload="init()" onresize="resizeCanvas()">
 
     <header>
         <div class="header-container">
@@ -37,6 +37,7 @@
                     
                     <img class="save" onclick="onSave()" src="icons/add.png">
                     <a class="download" href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
+                    <a class="share" href="#" download="file-name">Share</a>
                     <img class="pick-line" onclick="onSetLine()"
                         src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png">                    
                     <img class="inc-font-size" onclick="onSetFontSize(5)" src="icons/increase font - icon.png">

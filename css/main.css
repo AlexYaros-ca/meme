@@ -179,8 +179,7 @@ text-align: center;
     grid-area: right;
     
 }
-.download{
-    grid-area: download;
+.download, .share{    
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
@@ -190,6 +189,13 @@ text-align: center;
     color: black;
     text-align: center;
     border-radius: 2em;
+    justify-self: center;
+}
+.download{
+    grid-area: download;
+}
+.share{
+    grid-area: share;
 }
 
 
@@ -223,6 +229,18 @@ footer span{
 
     .dark-screen{
         width: 750px;
+    }
+
+    .actions-bar{
+        grid-template-rows: 70px 70px 70px 70px 70px 70px;
+        grid-template-areas: 
+        "pickLine pickLine  inc-font-size inc-font-size dec-font-size dec-font-size"
+        "fillColor fillColor fillColor strokeColor strokeColor strokeColor"
+        "left left center center right right"
+        "text text text text text text"
+        " . . save save . ."
+        "download download download  share share share"
+    ;
     }
 
     .meme-editor{
@@ -266,6 +284,17 @@ footer span{
         height: 37px;
         width: 37px;
     }
+    .actions-bar{
+        grid-template-rows: 50px 50px 50px 50px 50px 50px;
+        grid-template-areas: 
+        "pickLine pickLine  inc-font-size inc-font-size dec-font-size dec-font-size"
+        "fillColor fillColor fillColor strokeColor strokeColor strokeColor"
+        "left left center center right right"
+        "text text text text text text"
+        " . . save save . ."
+        "download download download  share share share"
+    ;
+    }
 
 
 }
@@ -300,12 +329,13 @@ footer span{
     .actions-bar{
         display: grid;
         grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 100px 100px;
+        grid-template-rows: 70px 70px 70px;
         justify-content: center;
         align-items: center;
         grid-template-areas: 
-        "text text left center right "
-        "pickLine inc-font-size dec-font-size fillColor strokeColor"              
+        "text text left center right"
+        "pickLine inc-font-size dec-font-size fillColor strokeColor"
+        "download . save . share"              
         ;
     }
     .actions{
